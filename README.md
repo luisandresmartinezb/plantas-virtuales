@@ -1,59 +1,170 @@
-# PlantasVirtuales
+# 🌿 Plantas Virtuales
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.2.
+Mini proyecto desarrollado con **Angular** para la gestión de una colección de plantas de interior.  
+Permite consultar, añadir, editar, eliminar y marcar el estado de riego de cada planta de forma sencilla y visual.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🧾 Descripción
 
+Esta aplicación permite gestionar una colección de plantas con las siguientes características:
+
+✔ Lista de plantas con nombre, imagen y estado de riego  
+✔ Añadir nuevas plantas con nombre e imagen generada automáticamente a partir del nombre  
+✔ Editar plantas existentes  
+✔ Marcar regada/no regada  
+✔ Filtrar por estado de riego (todas, regadas, no regadas)  
+✔ Botón “Regar todas” que actualiza todas las plantas  
+✔ Backend simulado con **json-server**
+
+---
+
+## Tecnologías utilizadas
+
+| Tecnología | Versión |
+|------------|---------|
+| Angular    | 17+     |
+| TypeScript | ES2022  |
+| json-server| —       |
+| HTML/CSS   | —       |
+| Bootstrap  | (opcional para estilos) |
+
+---
+
+## Funcionalidades
+
+La aplicación incluye:
+
+- **PlantListComponent**  
+  Muestra todas las plantas con indicadores de si están regadas y acciones para editar, eliminar o marcar riego.
+
+- **AddPlantComponent**  
+  Formulario para crear nuevas plantas o editar existentes.
+
+- **PlantService**  
+  Servicio Angular que se comunica con el backend json-server utilizando HttpClient.
+
+- **Routing**  
+  Permite navegar entre la lista principal y el formulario de añadir/editar planta.
+
+---
+
+## Estructura del proyecto
 ```bash
-ng serve
-```
+plantas-virtuales/
+├─ src/
+│ ├─ app/
+│ │ ├─ components/
+│ │ │ ├─ add-plant/
+│ │ │ └─ plant-list/
+│ │ ├─ services/
+│ │ └─ models/
+│ ├─ assets/
+│ │ └─ plants/
+│ └─ ...
+├─ db.json
+├─ angular.json
+└─ package.json
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🚀 Instalación y arranque
 
+### 1) Clonar el repositorio
 ```bash
-ng generate component component-name
-```
+git clone https://github.com/luisandresmartinezb/plantas-virtuales.git
+cd plantas-virtuales
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+### 2) Instalar dependencias
 ```bash
-ng generate --help
-```
+npm install
 
-## Building
-
-To build the project run:
-
+### 3) Levantar el backend simulado
 ```bash
-ng build
-```
+npx json-server --watch db.json --port 3000
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Este comando sirve la API REST en: http://localhost:3000/plants
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
+### 4)Arrancar la aplicación Angular
 ```bash
-ng test
-```
+ng serve -o
 
-## Running end-to-end tests
+La aplicación se abrirá automáticamente en tu navegador en: http://localhost:4200
 
-For end-to-end (e2e) testing, run:
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Funcionalidades
 
-## Additional Resources
+- 📋 Visualización de todas las plantas
+- ➕ Añadir nuevas plantas
+- ✏️ Editar plantas existentes
+- ❌ Eliminar plantas
+- 💧 Marcar plantas como regadas / no regadas
+- 🔍 Filtrar por estado (todas, regadas, no regadas)
+- 🌊 Botón "Regar todas"
+- 🖼 Generación automática de imagen a partir del nombre
+- 🛡 Imagen por defecto si no existe la imagen indicada
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+##  API REST (json-server)
+
+La aplicación consume un backend simulado mediante json-server en el puerto 3000.
+
+Endpoints disponibles:
+
+GET    /plants  
+POST   /plants  
+PATCH  /plants/:id  
+DELETE /plants/:id  
+
+Base URL:
+http://localhost:3000/plants
+
+---
+
+## Modelo de datos
+
+Cada planta contiene las siguientes propiedades:
+
+```ts
+{
+  id: number;
+  name: string;
+  watered: boolean;
+  image: string;
+}
+
+
+---
+
+# ✅ 4️⃣ Sección: Objetivo académico
+
+Muy importante para examen:
+
+```markdown
+---
+
+## Objetivo académico
+
+Este proyecto demuestra el uso de:
+
+- Componentes standalone en Angular
+- Directivas estructurales (*ngFor, *ngIf)
+- Property Binding y Event Binding
+- Formularios Template-driven
+- Servicios con HttpClient
+- Routing básico
+- Consumo de API REST
+- Gestión de estado
+
+---
+
+##  Autor
+
+Luis Andrés Martínez Berraquero.  
+Front Avanzado (Angular) – Examen obligatorio
+
+
