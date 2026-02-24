@@ -1,0 +1,54 @@
+<div class="page">
+    <header class="topbar">
+        <div>
+            <h1>Mi Colección de Plantas 🌿</h1>
+            <p class="subtitle">Añade, edita, elimina y marca riego.</p>
+        </div>
+
+        <div class="actions">
+            <select class="select" [(ngModel)]="filter">
+                <option value="all">Todas</option>
+                <option value="watered">Regadas</option>
+                <option value="dry">No regadas</option>
+            </select>
+
+            <button class="btn secondary" (click)="waterAll()">Regar todas</button>
+            <a class="btn" routerLink="/add">+ Añadir</a>
+        </div>
+    </header>
+
+    <div class="grid">
+        <article class="card" *ngFor="let plant of filteredPlants">
+            <img class="photo"
+                 [src]="plant.image"
+                 [alt]="plant.name"
+                 (error)="onImgError($event)" />
+
+            <div class="info">
+                <h3>{{ plant.name }}</h3>
+
+                <p [ngClass]="plant.watered ? 'ok' : 'bad'">
+                    {{ plant.watered ? 'Regada ' : 'Necesita riego ' }}
+                </p>
+
+                <div class="buttons">
+                    <button class="btn small" (click)="toggleWater(plant)">
+                        {{ plant.watered ? 'Marcar NO regada' : 'Regar' }}
+                    </button>
+
+                    <a class="btn small secondary" [routerLink]="['/edit', plant.id]">
+                        Editar
+                    </a>
+
+                    <button class="btn small danger" (click)="deletePlant(plant.id)">
+                        Eliminar
+                    </button>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <p class="empty" *ngIf="filteredPlants.length === 0">
+        No hay plantas con ese filtro.
+    </p>
+</div>

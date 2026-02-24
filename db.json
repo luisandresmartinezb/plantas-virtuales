@@ -1,0 +1,34 @@
+{
+  "plants": [
+    {
+      "id": "1",
+      "name": "Monstera",
+      "watered": true,
+      "image": "/assets/plants/monstera.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Pothos",
+      "watered": true,
+      "image": "/assets/plants/pothos.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Cactus",
+      "watered": true,
+      "image": "/assets/plants/cactus.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Sansevieria",
+      "watered": true,
+      "image": "/assets/plants/sansevieria.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Calathea",
+      "watered": false,
+      "image": "/assets/plants/calathea.jpg"
+    }
+  ]
+}

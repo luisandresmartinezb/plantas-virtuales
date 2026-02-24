@@ -1,0 +1,34 @@
+<div class="page">
+    <header class="topbar">
+        <h2>{{ isEdit ? 'Editar planta ' : 'Añadir planta ' }}</h2>
+        <a routerLink="/" class="btn secondary">Volver</a>
+    </header>
+
+    <form class="form" #f="ngForm" (ngSubmit)="save(f)">
+        <label>
+            Nombre (obligatorio)
+            <input name="name" [(ngModel)]="plant.name" required minlength="2" />
+        </label>
+
+        <label>
+            Ruta imagen (opcional) — si la dejas vacía, se genera por el nombre
+            <input name="image" [(ngModel)]="plant.image" placeholder="/assets/plants/aloe-vera.jpg" />
+        </label>
+
+        <label class="check">
+            <input type="checkbox" name="watered" [(ngModel)]="plant.watered" />
+            Regada
+        </label>
+
+        <div class="buttons">
+            <button class="btn" type="submit" [disabled]="f.invalid">
+                {{ isEdit ? 'Guardar cambios' : 'Crear planta' }}
+            </button>
+        </div>
+
+        <div class="preview">
+            <p>Vista previa</p>
+            <img [src]="plant.image || '/assets/plants/default.jpg'" [alt]="plant.name" />
+        </div>
+    </form>
+</div>
