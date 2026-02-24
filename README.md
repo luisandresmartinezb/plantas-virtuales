@@ -91,13 +91,56 @@ Este comando sirve la API REST en: http://localhost:3000/plants
 ng serve -o
 
 
+---
 
+## ✅ Funcionalidades
 
+- Visualización de todas las plantas
+-  Añadir nuevas plantas
+- Editar plantas existentes
+- Eliminar plantas
+- Marcar plantas como regadas / no regadas
+- Filtrar por estado (todas, regadas, no regadas)
+- Botón "Regar todas"
+- Generación automática de imagen a partir del nombre
+- Imagen por defecto si no existe la imagen indicada
 
+---
 
+## API REST (json-server)
 
+La aplicación consume un backend simulado mediante json-server en el puerto 3000.
 
+Endpoints disponibles:
 
+GET    /plants  
+POST   /plants  
+PATCH  /plants/:id  
+DELETE /plants/:id  
+
+Base URL:
+http://localhost:3000/plants
+
+---
+
+## Modelo de datos
+
+Cada planta contiene las siguientes propiedades:
+
+```ts
+{
+  id: number;
+  name: string;
+  watered: boolean;
+  image: string;
+}
+
+---
+
+##  Autor
+
+Luis Andrés Martínez Berraquero.  
+Front Avanzado (Angular) – Examen obligatorio
 
 
 
