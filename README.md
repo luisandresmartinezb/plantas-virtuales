@@ -50,7 +50,7 @@ La aplicación incluye:
 ---
 
 ## 📁 Estructura del proyecto
-
+```bash
 plantas-virtuales/
 ├─ src/
 │ ├─ app/
